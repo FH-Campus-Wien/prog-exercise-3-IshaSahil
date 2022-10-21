@@ -1,6 +1,7 @@
 package at.ac.fhcampuswien;
 
 import jdk.internal.org.jline.utils.ShutdownHooks;
+import sun.security.mscapi.CPublicKey;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -51,7 +52,6 @@ public class App {
         }
 
 
-        // Task 2: PseudoRandom Numbers
     public static long[] lcg(long seed){
             int a = 1103515245, c = 12345;
             long m = 2147483648L;
@@ -61,8 +61,28 @@ public class App {
                 seed = (a * seed + c) % m;
                 pseudoRandom[i] = seed;
             }
+
             return pseudoRandom;
         }
+
+        //Task 3: Guessing Game
+        public static void guessingGame(int numberToGuess) {
+            Scanner scanner = new Scanner(System.in);
+            int input;
+            for (int i = 1; i <= 10; i++) {
+                System.out.printf("Guess number %s: ", i);
+                input = scanner.nextInt();
+
+                if (input == numberToGuess) {
+                    System.out.println("You won weisenheimer!");
+                    break;
+                }
+                if (i == 10) System.out.println("You lost! Have you ever heard of divide & conquer");
+                else
+                    System.out.println("The number AI picked is " + (input < numberToGuess ? "higher " : "lower ") + "than your guess." );
+            }
+        }
+
 
 
 
