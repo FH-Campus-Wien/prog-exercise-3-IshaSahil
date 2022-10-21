@@ -1,5 +1,6 @@
 package at.ac.fhcampuswien;
 
+import com.sun.org.apache.xpath.internal.operations.String;
 import jdk.internal.org.jline.utils.ShutdownHooks;
 import sun.security.mscapi.CPublicKey;
 
@@ -102,6 +103,51 @@ public class App {
             }
             return true;
         }
+
+        //Task 5 : Camel Case
+    public static String camelcase(String sentence)
+        {
+            char[] cs = sentence.toCharArray();
+            boolean big = true;
+            boolean small = false;
+            StringBuilder resut = new StringBuilder();
+            for (int i = 0; i < cs.length; i++)
+            {
+                if (cs[i] == 32)
+                {
+                    big = true;
+                    small = false;
+
+                } else if(big && (cs[i] <= 90 && cs[i] >= 65 || cs[i] >= 97 && cs[i] <= 122))
+                {
+                    if (cs[i] >=97 && cs[i] <= 122)
+                    {
+                        resut.append((char) (cs[i] - 32));
+
+                    }
+                    else
+                    {
+                        resut.append(cs[i]);
+                    }
+                    big = false;
+                    small = true;
+
+                } else if (small && (cs[i] <= 90 && cs[i] >= 65 || cs[i] >= 97 && cs[i] <= 122)) {
+                    if (cs[i] >= 65  && cs[i] <= 90)
+                    {
+                        resut.append((char) (cs[i] + 32));
+
+                    }
+                    else
+                    {
+                        resut.append(cs[i]);
+                    }
+                }
+
+                }
+            return resut.toString();
+            }
+
 
 
 
