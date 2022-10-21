@@ -83,6 +83,34 @@ public class App {
             }
         }
 
+        public static int randomNumberBetweenOneAndHundred() {
+            Random rnd = new Random();
+            return rnd.nextInt(100) + 1;
+        }
+
+
+        public static boolean swapArrays(int[] arrayOne, int[] arrayTwo){
+            int temp;
+            if (arrayOne.length != arrayTwo.length) {
+                return false;
+            }
+            for (int i = 0; i < arrayOne.length; i++) {
+                temp = arrayOne[i];
+                arrayOne[i] = arrayTwo[i];
+                arrayTwo[i] = temp;
+
+            }
+            return true;
+        }
+
+
+
+
+
+
+
+
+
 
 
 
