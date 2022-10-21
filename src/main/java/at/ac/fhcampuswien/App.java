@@ -51,16 +51,20 @@ public class App {
         }
 
 
-        // Task 2: Pseudo Random Numbers
+        // Task 2: PseudoRandom Numbers
     public static long[] lcg(long seed){
-            long[] returnArray = new long[10];
-            long m = (long) Math.pow(2, 31);
-            long a = 1103515245;
-            int c = 12345;
+            int a = 1103515245, c = 12345;
+            long m = 2147483648L;
+            long[] pseudoRandom = new long[10];
+
             for (int i = 0; i < 10; i++) {
-                returnArray[i] = (a * (i == 0 ? seed : returnArray[i - 1]) + c) % m;
+                seed = (a * seed + c) % m;
+                pseudoRandom[i] = seed;
             }
-            return returnArray;
+            return pseudoRandom;
+        }
+
+
 
 
 
