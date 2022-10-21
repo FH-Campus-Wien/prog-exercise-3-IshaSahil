@@ -1,5 +1,7 @@
 package at.ac.fhcampuswien;
 
+import jdk.internal.org.jline.utils.ShutdownHooks;
+
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -47,6 +49,22 @@ public class App {
                 System.out.println();
             }
         }
+
+
+        // Task 2: Pseudo Random Numbers
+    public static long[] lcg(long seed){
+            long[] returnArray = new long[10];
+            long m = (long) Math.pow(2, 31);
+            long a = 1103515245;
+            int c = 12345;
+            for (int i = 0; i < 10; i++) {
+                returnArray[i] = (a * (i == 0 ? seed : returnArray[i - 1]) + c) % m;
+            }
+            return returnArray;
+
+        }
+
+
 
 
 
