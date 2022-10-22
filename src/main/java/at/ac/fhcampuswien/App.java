@@ -1,26 +1,21 @@
 package at.ac.fhcampuswien;
 
-import com.sun.org.apache.xpath.internal.operations.String;
-import jdk.internal.org.jline.utils.ShutdownHooks;
-import sun.security.mscapi.CPublicKey;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
+
+
+
+
 
 public class App {
 
     //Implement all methods as public static
 
-    public static void main(String[] args) {
-        //test your method implementation here
-        //make method calls
-        //print their results
-        //etc.
+    //Task 1: OneMonthCalender
 
-        public static void oneMonthCalender ( int numDays, int startDay){
-            //if bedingung mit modulo
-            //rechtsbündig,soutprintf ( %, ... ) oder andere Bedingung
+        public static void OneMonthCalender(int numDays,int startDay){
+            //rechtsbündig, soutprintf ( %, ... ) oder andere Bedingung
 
             int row;
             int count = 1;
@@ -52,7 +47,7 @@ public class App {
             }
         }
 
-
+        //Task 2: Pseudo Random Numbers
         public static long[] lcg ( long seed){
             int a = 1103515245, c = 12345;
             long m = 2147483648L;
@@ -64,6 +59,12 @@ public class App {
             }
 
             return pseudoRandom;
+        }
+
+        public static int randomnumberBetweenOneAndHundred() {
+            Random random = new Random();
+            int zufallszahl = random.nextInt(99) + 1;
+            return zufallszahl;
         }
 
         //Task 3: Guessing Game
@@ -105,13 +106,15 @@ public class App {
         }
 
         //Task 5 : Camel Case
-        public static String camelcase (String sentence)
+        public static String camelCase(String sentence)
         {
             char[] cs = sentence.toCharArray();
             boolean big = true;
             boolean small = false;
             StringBuilder resut = new StringBuilder();
-            for (int i = 0; i < cs.length; i++) {
+            for (int i = 0; i < cs.length; i++)
+            {
+
                 if (cs[i] == 32) {
                     big = true;
                     small = false;
@@ -154,6 +157,8 @@ public class App {
         }
 
     }
+
+
 
 
 
