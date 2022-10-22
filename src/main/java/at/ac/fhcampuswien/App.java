@@ -18,7 +18,7 @@ public class App {
         //print their results
         //etc.
 
-        public static void oneMonthCalender(int numDays,int startDay){
+        public static void oneMonthCalender ( int numDays, int startDay){
             //if bedingung mit modulo
             //rechtsbündig,soutprintf ( %, ... ) oder andere Bedingung
 
@@ -53,7 +53,7 @@ public class App {
         }
 
 
-    public static long[] lcg(long seed){
+        public static long[] lcg ( long seed){
             int a = 1103515245, c = 12345;
             long m = 2147483648L;
             long[] pseudoRandom = new long[10];
@@ -67,7 +67,7 @@ public class App {
         }
 
         //Task 3: Guessing Game
-        public static void guessingGame(int numberToGuess) {
+        public static void guessingGame ( int numberToGuess){
             Scanner scanner = new Scanner(System.in);
             int input;
             for (int i = 1; i <= 10; i++) {
@@ -80,17 +80,17 @@ public class App {
                 }
                 if (i == 10) System.out.println("You lost! Have you ever heard of divide & conquer");
                 else
-                    System.out.println("The number AI picked is " + (input < numberToGuess ? "higher " : "lower ") + "than your guess." );
+                    System.out.println("The number AI picked is " + (input < numberToGuess ? "higher " : "lower ") + "than your guess.");
             }
         }
 
-        public static int randomNumberBetweenOneAndHundred() {
+        public static int randomNumberBetweenOneAndHundred () {
             Random rnd = new Random();
             return rnd.nextInt(100) + 1;
         }
 
 
-        public static boolean swapArrays(int[] arrayOne, int[] arrayTwo){
+        public static boolean swapArrays ( int[] arrayOne, int[] arrayTwo){
             int temp;
             if (arrayOne.length != arrayTwo.length) {
                 return false;
@@ -105,48 +105,59 @@ public class App {
         }
 
         //Task 5 : Camel Case
-    public static String camelcase(String sentence)
+        public static String camelcase (String sentence)
         {
             char[] cs = sentence.toCharArray();
             boolean big = true;
             boolean small = false;
             StringBuilder resut = new StringBuilder();
-            for (int i = 0; i < cs.length; i++)
-            {
-                if (cs[i] == 32)
-                {
+            for (int i = 0; i < cs.length; i++) {
+                if (cs[i] == 32) {
                     big = true;
                     small = false;
 
-                } else if(big && (cs[i] <= 90 && cs[i] >= 65 || cs[i] >= 97 && cs[i] <= 122))
-                {
-                    if (cs[i] >=97 && cs[i] <= 122)
-                    {
+                } else if (big && (cs[i] <= 90 && cs[i] >= 65 || cs[i] >= 97 && cs[i] <= 122)) {
+                    if (cs[i] >= 97 && cs[i] <= 122) {
                         resut.append((char) (cs[i] - 32));
 
-                    }
-                    else
-                    {
+                    } else {
                         resut.append(cs[i]);
                     }
                     big = false;
                     small = true;
 
                 } else if (small && (cs[i] <= 90 && cs[i] >= 65 || cs[i] >= 97 && cs[i] <= 122)) {
-                    if (cs[i] >= 65  && cs[i] <= 90)
-                    {
+                    if (cs[i] >= 65 && cs[i] <= 90) {
                         resut.append((char) (cs[i] + 32));
 
-                    }
-                    else
-                    {
+                    } else {
                         resut.append(cs[i]);
                     }
                 }
 
-                }
-            return resut.toString();
             }
+            return resut.toString();
+        }
+
+
+        // Task 6: Check Digit
+        public static int checkDigit ( int[] inputArray){
+            int productsSum = 0;
+            int checkDigit;
+            for (int i = 0; i < inputArray.length; i++) {
+                productsSum += inputArray[i] * (i + 2);
+            }
+            checkDigit = 11 - (productsSum % 11);
+            if (checkDigit == 10) return 0;
+            else if (checkDigit == 11) return 5;
+            return checkDigit;
+        }
+
+    }
+
+
+
+
 
 
 
